@@ -1,0 +1,33 @@
+.modal {
+  background-color: rgba(3, 3, 3, .8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+}
+
+.modal-content {
+  margin: 0 auto;
+  margin-top: 5%;
+  max-width: 900px;
+  background-color: #1d1d1d;
+  padding: 0;
+  box-shadow: 0 0 5px #fa6800;
+}
+
+.modal-header,
+.modal-body,
+.modal-footer {
+  padding: 10px;
+}
+
+.modal-header,
+.modal-footer {
+  background-color: #111;
+}
+
+#load {
+  background-color: rgba(3, 3, 3, .95);
+}

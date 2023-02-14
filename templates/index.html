@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %} Home | Wrist Scan {% endblock %}
+
+{% block links %}
+
+<script src="{{ url_for('static', filename='js/index.js') }}"></script>
+{% endblock %}
+
+{% block subtitle %} Home {% endblock %}
+
+{% block body %}
+<div class="row">
+  <div class="col-6 offset-2">
+    <input data-role="materialinput" type="text" name="ip" id="ip" placeholder="Insira o IP"
+           data-icon="<span class='mif-settings-ethernet mif-2x '>" data-label="IP"
+           data-informer="Entre com um endeço de IP valido" data-cls-line="bg-orange" 
+           data-cls-label="fg-orange" data-cls-informer="fg-lightOrange" data-cls-icon="fg-darkOrange" 
+           data-validate="required"
+           style="color: #eee;">
+  </div>
+  <div class="col-1">
+    <button class="button success outline ml-3 mt-2" id="btn" onclick="btn()">Scan <span class="mif-search ml-2"></span></button>
+  </div>
+</div>
+{% endblock %}

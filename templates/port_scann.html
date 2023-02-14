@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %} Port Scan | Wrist Scan {% endblock %}
+{% block subtitle %} Port Scan | IP {{ data['ip'] }} {% endblock %}
+
+{% block links %}
+
+{% endblock %} 
+
+{% block body %} 
+<div class="row">
+  <div class="col-sm-6 offset-3">
+    <table class="table table-border bd-green row-hover bg-dark">
+      <thead class="border bd-green">
+        <tr class="text-center">
+          <th class="fg-orange">Port</th>
+          <th class="fg-red text-center">Banner</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for key, value in data['ports'].items(): %}
+        <tr class="border-bottom bd-green">
+          <td>{{ key }}</td>
+          <td>{{ value }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %} 
+
+{% block script %} 
+<script>
+  $(document).ready(function () {
+    $("#home").after('<li id="network"><a href="/network"><span class="mif-books icon"></span>network</a></li>')
+  });
+</script>
+{% endblock %}

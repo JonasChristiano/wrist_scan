@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <title>{% block title %}{% endblock %}</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+  <link rel="stylesheet" href="https://cdn.korzh.com/metroui/v4/css/metro-all.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script type=”text/javascript” src=”/eel.js”></script>
+  {% block links %}
+  {% endblock %}
+</head>
+<body class="bg-black fg-white">
+  <aside class="sidebar pos-absolute z-2 bg-dark" data-role="sidebar" data-toggle="#sidebar-toggle-3" id="sb3"
+    data-shift=".shifted-content">
+    <ul class="sidebar-menu fg-white">
+      <li class="divider bg-orange"></li>
+      <li id="home"><a href="/"><span class="mif-home icon"></span>Home</a></li>
+      
+      <li class="divider bg-orange"></li>
+    </ul>
+  </aside>
+
+  <div class="shifted-content h-100 p-ab ">
+    <div class="app-bar pos-absolute z-1" data-role="appbar" style="background-color: #0f0f0f;">
+      <button class="app-bar-item c-pointer" id="sidebar-toggle-3">
+        <span class="mif-menu mif-5x fg-red "></span>
+      </button>
+      <h1 class="ml-15">{% block subtitle %}{% endblock %}</h1>
+    </div>
+  </div>
+
+  <div class="mt-15 z-1 fg-white">
+    {% block body %}
+    {% endblock %}
+  </div>
+
+  <script src="https://cdn.korzh.com/metroui/v4/js/metro.min.js"></script>
+  {% block script %} 
+  {% endblock %} 
+</body>
+</html>

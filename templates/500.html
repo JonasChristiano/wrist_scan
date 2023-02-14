@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %} Internal serve error | Wrist Scan {% endblock %}
+
+{% block subtitle %} Internal serve error {% endblock %}
+
+{% block body %}
+<div class="row">
+  <div class="col-sm text-center fg-white">
+    <h5 class="mb-10 ">{{ error }}</h5>
+    <a href="{{ url_for('index') }}">Go back home page</a>
+  </div>
+</div>
+{% endblock %}

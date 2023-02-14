@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block title %} Networks | Wrist Scan {% endblock %}
+
+{% block subtitle %} Networks {% endblock %} 
+
+{% block links %} 
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/network.css') }}">
+  <script src="{{ url_for('static', filename='js/network.js') }}"></script>
+{% endblock %} 
+
+{% block body %}
+<div class="row">
+  <div class="col-6 offset-3">
+    <table class="table table-border bd-green row-hover bg-dark">
+      <thead class="border bd-green">
+        <tr class="text-center">
+          <th class="fg-orange">IP</th>
+          <th class="fg-orange">options</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for ip in ips %}
+        <tr class="border-bottom bd-green">
+          <td class="text-center" data-ip="{{ loop.index }}">{{ ip }}</td>
+          <td class="w-50">
+            <button class="button success outline border-radius-10 w-100" onclick="openModal('modal'); get_ip($('[data-ip={{ loop.index }}]').text())">Options</button>
+          </td>
+        </tr>
+        {% else %} 
+          <tr class="border-bottom bd-green">
+            <td class="text-center">Not IP</td>
+            <td class="w-50">
+              <button class="button success outline disabled border-radius-10 w-100">Options</button>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!--Modal de configuração para o port scanner-->
+<div id='modal' class="modal">
+  <div class="modal-content border-radius-10">
+    <div class="modal-header text-center border-top border-radius-10">
+      <h1>configuration Port scan</h1>
+    </div>
+    <div class="modal-body border-radius-10">
+      <div class="row">
+        <div class="col-sm-2">
+          <input onclick="checkbox()" id="all_ports" type="checkbox" data-role="switch" data-caption="All port" 
+             data-cls-caption="fg-orange text-bold" data-cls-check="bd-orange border-radius-10"><br>
+          <input onclick="checkbox()" id="ports" type="checkbox" data-role="switch" data-caption="select port" data-cls-caption="fg-orange text-bold"
+            data-cls-check="bd-orange border-radius-10">
+        </div>
+        <div class="col-sm">
+          <input data-role="taginput" type="text" name="port_value" id="port_value" class="input input-small mt-5"
+             data-tag-trigger="Space"
+             data-cls-tag-title="text-bold fg-white"
+             data-cls-tag="bg-orange fg-white"
+             data-cls-tag-remover="bg-darkOrange fg-white">
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer border-bottom border-radius-10">
+      <button class="button success outline border-radius-10" id="submit">Scanning</button>
+      <button class="button alert outline border-radius-10" onclick="closeModal('modal')">close</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="load">
+  <h1 class="text-center">Wrist Scan</h1>
+  <h3 class="text-center">Scanning ports</h3>
+  <div data-role="cube"></div>
+</div>
+
+{% endblock %} 
+
+{% block script %}
+
+{% endblock %}
